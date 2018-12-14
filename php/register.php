@@ -5,3 +5,25 @@
  * Date: 2018-12-07
  * Time: 14:28
  */
+
+/**
+require_once "db_connection.php";
+require_once "functions.php";
+
+db_connect();
+
+if($_POST['password'] == $_POST['password2']) {
+    $sql = "INSERT INTO users (username, password, location) VALUES (?, ?, ?)";
+    $statement = $conn->prepare($sql);
+    $statement->bind_param('sss', $_POST['username'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['location']);
+
+    if ($statement->execute()) {
+        redirect_to("../index.php?registered=true");
+    } else {
+        echo "Error: " . $conn->error;
+    }
+} else {
+    redirect_to("../index.php?register_error=true");
+}
+$conn->close();
+ **/
