@@ -6,6 +6,7 @@
  * Time: 15:36
  */
 require_once "db_connection.php";
+require_once "functions.php";
 
 db_connect();
 
