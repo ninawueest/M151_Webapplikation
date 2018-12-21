@@ -94,7 +94,7 @@
 							Do you already have an account?
 						</span>
 
-                    <a href="index.html" class="txt2">
+                    <a href="login-view.php" class="txt2">
                         Sign In
                     </a>
                 </div>

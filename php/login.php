@@ -24,7 +24,7 @@ if ($statement->execute()) {
         $_SESSION['user_username'] = $username;
         redirect_to("../home.php");
     } else {
-        redirect_to("../index.php?login_error=true");
+        redirect_to("../login-view.php?login_error=true");
     }
 } else {
     echo "Error: " . $conn->error;
