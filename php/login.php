@@ -10,6 +10,12 @@ require_once "functions.php";
 
 db_connect();
 
+$sql = "";
+$statement = $conn->prepare($sql);
+
+
+
+/**
 $sql = "SELECT id, username, password FROM users WHERE username = ?";
 $statement = $conn->prepare($sql);
 $statement->bind_param('s', $_POST['lalala']);
@@ -29,4 +35,4 @@ if ($statement->execute()) {
 } else {
     echo "Error: " . $conn->error;
 }
-
+**/
