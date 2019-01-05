@@ -19,7 +19,7 @@
                 <a class="navbar-brand" href="#">Modul 151 Web-Application</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login-view.php" style="color:white">Logout</a></li>
+                <li><a href="../php/logout.php" style="color:white">Logout</a></li>
             </ul>
         </div>
     </nav>

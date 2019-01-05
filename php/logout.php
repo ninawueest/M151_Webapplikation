@@ -11,4 +11,4 @@ require_once "functions.php";
 // destroy all sessions
 session_destroy();
 
-redirect_to("../login-view.php");
+redirect_to("../view/login-view.php");
