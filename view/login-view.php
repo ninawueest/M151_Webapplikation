@@ -69,7 +69,7 @@
 							Do you not have an account?
 						</span>
 
-						<a href="registration.php" class="txt2">
+						<a href="registration-view.php" class="txt2">
 							Sign Up
 						</a>
 					</div>

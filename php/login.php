@@ -28,7 +28,7 @@ if ($statement->execute()) {
     if(password_verify($_POST['password'], $password)) {
         $_SESSION['user_id'] = $id;
         $_SESSION['user_username'] = $username;
-        redirect_to("../home.php");
+        redirect_to("../home-view.php");
     } else {
         redirect_to("../login-view.php?login_error=true");
     }
