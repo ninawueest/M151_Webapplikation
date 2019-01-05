@@ -31,6 +31,12 @@
 						Registration
 					</span>
 
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
+                    <span class="label-input100">Username</span>
+                    <input class="input100" type="text" name="perBenutzername" placeholder="Username" required>
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "First name is required">
                     <span class="label-input100">First name</span>
                     <input class="input100" type="text" name="perVorname" placeholder="First name" required>

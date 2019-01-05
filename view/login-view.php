@@ -38,8 +38,8 @@
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-						<span class="label-input100">Email</span>
-						<input class="input100" type="email" name="perEmail" placeholder="Type your email" required>
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="perBenutzername" placeholder="Type your username" required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
