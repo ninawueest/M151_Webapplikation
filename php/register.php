@@ -6,9 +6,26 @@
  * Time: 14:28
  */
 
+require_once "db_connection.php";
+require_once "functions.php";
 
+db_connect();
 
+if ($_POST['perPasswort'] == $_POST['perPasswort2']) {
+    $sql = "";
+    $statement = $conn->prepare($sql);
+    $statement->bind_param();
 
+    if ($statement->execute()) {
+        redirect_to("../login-view.php");
+    } else {
+        echo "Error: " . $conn->error;
+    }
+} else {
+    echo "Wrong password";
+}
+
+$conn->close();
 
 
 

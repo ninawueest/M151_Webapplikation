@@ -81,7 +81,7 @@
 
                 <div class="wrap-input100 validate-input m-b-40" data-validate="Confirm password">
                     <span class="label-input100">Confirm password</span>
-                    <input class="input100" type="password_confirm" name="perPasswort" placeholder="Confirm password" required>
+                    <input class="input100" type="password" name="perPasswort2" placeholder="Confirm password" required>
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
