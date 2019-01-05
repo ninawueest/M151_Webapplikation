@@ -10,8 +10,23 @@ require_once "functions.php";
 
 db_connect();
 
-$sql = "";
+$sql = "SELECT perId, perBenutzername, perPasswort FROM tbl_Person WHERE perBenutzername = ?";
 $statement = $conn->prepare($sql);
+$statement->bind_param('s', $_POST['perBenutzername']);
+$statement->execute();
+$statement->store_result();
+$statement->bind_result($perId, $perBenutzername, $perPasswort);
+$statement->fetch();
+
+if ($statement->execute()) {
+    if (password_verify($_POST['perPasswort'], $perPasswort)) {
+        redirect_to("../home-view.php");
+    } else {
+        echo "Error 1st else";
+    }
+} else {
+    echo "Error: " . $conn->error;
+}
 
 
 
