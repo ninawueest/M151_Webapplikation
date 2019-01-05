@@ -33,49 +33,49 @@
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "First name is required">
                     <span class="label-input100">First name</span>
-                    <input class="input100" type="text" name="perVorname" placeholder="First name">
+                    <input class="input100" type="text" name="perVorname" placeholder="First name" required>
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Last name is required">
                     <span class="label-input100">Last name</span>
-                    <input class="input100" type="text" name="perNachname" placeholder="Last name">
+                    <input class="input100" type="text" name="perNachname" placeholder="Last name" required>
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Address is required">
                     <span class="label-input100">Address</span>
-                    <input class="input100" type="text" name="adrStrassenname" placeholder="Address">
+                    <input class="input100" type="text" name="adrStrassenname" placeholder="Address" required>
                     <span class="focus-input100" data-symbol="&#xf015;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Postal code is required">
                     <span class="label-input100">Postal code</span>
-                    <input class="input100" type="text" name="ortPostleitzahl" placeholder="Postal code">
+                    <input class="input100" type="number" name="ortPostleitzahl" placeholder="Postal code" required>
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "City is required">
                     <span class="label-input100">City</span>
-                    <input class="input100" type="text" name="ortOrtsbezeichnung" placeholder="City">
+                    <input class="input100" type="text" name="ortOrtsbezeichnung" placeholder="City" required>
                     <span class="focus-input100" data-symbol="&#xf64f;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
                     <span class="label-input100">E-Mail</span>
-                    <input class="input100" type="text" name="perEmail" placeholder="E-Mail">
+                    <input class="input100" type="email" name="perEmail" placeholder="E-Mail" required>
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
                     <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="perPasswort" placeholder="Password">
+                    <input class="input100" type="password" name="perPasswort" placeholder="Password" required>
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-40" data-validate="Confirm password">
                     <span class="label-input100">Confirm password</span>
-                    <input class="input100" type="password_confirm" name="perPasswort" placeholder="Confirm password">
+                    <input class="input100" type="password_confirm" name="perPasswort" placeholder="Confirm password" required>
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
