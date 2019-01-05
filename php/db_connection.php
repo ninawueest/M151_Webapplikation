@@ -6,14 +6,14 @@
  * Time: 14:35
  */
 
-session_start();
+//session_start();
 
 function db_connect() {
     global $conn; // db connection variable
     $db_server = "localhost";
     $username = "root";
     $password = "root";
-    $db_name = "lala";
+    $db_name = "m151_db";
 
     // create a connection
     $conn = new mysqli($db_server, $username, $password, $db_name);
@@ -23,3 +23,4 @@ function db_connect() {
         die("Error: " . $conn->connect_error);
     }
 }
+
