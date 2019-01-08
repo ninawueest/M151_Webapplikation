@@ -26,7 +26,7 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form class="login100-form validate-form">
+            <form class="login100-form validate-form" method="post" action="../php/register.php">
 					<span class="login100-form-title p-b-49">
 						Registration
 					</span>
@@ -55,6 +55,12 @@
                     <span class="focus-input100" data-symbol="&#xf015;"></span>
                 </div>
 
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Number is required">
+                    <span class="label-input100">Number</span>
+                    <input class="input100" type="text" name="adrHausnummer" placeholder="Number" required>
+                    <span class="focus-input100" data-symbol="&#xf015;"></span>
+                </div>
+
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Postal code is required">
                     <span class="label-input100">Postal code</span>
                     <input class="input100" type="number" name="ortPostleitzahl" placeholder="Postal code" required>
@@ -69,7 +75,7 @@
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
                     <span class="label-input100">E-Mail</span>
-                    <input class="input100" type="email" name="perEmail" placeholder="E-Mail" required>
+                    <input class="input100" type="email" name="konEmail" placeholder="E-Mail" required>
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 

@@ -20,13 +20,37 @@ $statement->fetch();
 
 if ($statement->execute()) {
     if (password_verify($_POST['perPasswort'], $perPasswort)) {
-        redirect_to("../home-view.php");
+        //Session stuff will follow here
+        redirect_to("../view/home-view.php");
     } else {
         echo "Error 1st else";
     }
 } else {
     echo "Error: " . $conn->error;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

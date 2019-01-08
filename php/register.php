@@ -9,23 +9,89 @@
 require_once "db_connection.php";
 require_once "functions.php";
 
-db_connect();
+$conn = db_connect();
 
 if ($_POST['perPasswort'] == $_POST['perPasswort2']) {
-    $sql = "";
+    $sql = "CALL proc_InsertRegistrationData(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $statement = $conn->prepare($sql);
-    $statement->bind_param();
+    $statement->bind_param('sssssssss',
+        $_POST['perBenutzername'],
+        $_POST['perVorname'],
+        $_POST['perNachname'],
+        password_hash($_POST['perPasswort'], PASSWORD_DEFAULT),
+        $_POST['ortPostleitzahl'],
+        $_POST['ortOrtsbezeichnung'],
+        $_POST['adrStrassenname'],
+        $_POST['adrHausnummer'],
+        $_POST['konEmail']
+    );
 
     if ($statement->execute()) {
-        redirect_to("../login-view.php");
+        redirect_to("../view/login-view.php");
     } else {
         echo "Error: " . $conn->error;
+
     }
 } else {
     echo "Wrong password";
 }
 
 $conn->close();
+
+
+
+
+
+
+/**
+ *
+ *
+ *
+ * INSERT INTO tbl_Ort (ortPostleitzahl, ortOrtsbezeichnung) VALUES ('3000', 'Baden');
+SET @ortID = LAST_INSERT_ID();
+INSERT INTO tbl_Adresse (adrStrassenname, adrHausnummer, ortId) VALUES ('Musterstrasse', '5', @ortID);
+SET @AdresseID = LAST_INSERT_ID();
+INSERT INTO tbl_Kontakt (konEmail) VALUES ('muster@gmail.com');
+SET @KontaktID = LAST_INSERT_ID();
+INSERT INTO tbl_Person (perBenutzername, perVorname, perNachname, perPasswort, konId, adrId) VALUES ('BName', 'Max', 'Muster', '1234', @AdresseID, @KontaktID);
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_InsertRegistrationData`(
+IN `p_perBenutzername` VARCHAR(50),
+IN `p_perVorname` VARCHAR(30),
+IN `p_perNachname` VARCHAR(30),
+IN `p_perPasswort` VARCHAR(255),
+IN `p_ortPostleitzahl` INT(11),
+IN `p_ortOrtsbezeichnung`
+IN `p_adrStrassenname` VARCHAR(30),
+IN `p_adrHausnummer` VARCHAR(5),
+IN `p_konEmail` VARCHAR(255))
+NO SQL
+BEGIN
+
+SET @ortID = func_InsertOrt(`p_ortPostleitzahl`, `p_ortOrtsbezeichnung`);
+SET @adrID = func_InsertAdresse(`p_adrStrassenname`, `p_adrHausnummer`, @ortID );
+SET @konID = func_InsertKontakt(`p_konEmail`);
+SET @perID = func_InsertPerson(`p_perBenutzername`, `p_perVorname`, `p_perNachname`, `p_perPasswort`, @konID, @adrID);
+
+END
+ *
+INSERT INTO tbl_Kontakt (konEmail) VALUES (p_konEmail);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
