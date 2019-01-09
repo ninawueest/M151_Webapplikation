@@ -41,6 +41,80 @@ $conn->close();
 
 
 
+/***Login
+//$sql = "SELECT perId, perBenutzername, perPasswort FROM tbl_Person WHERE perBenutzername = ?";
+//$sql = "SELECT perPasswort FROM tbl_Person WHERE perBenutzername = ?";
+//$conn->multi_query("CALL func_SelectLoginData('$username')");
+
+$sql = "CALL proc_SelectLoginData(?)";
+$statement = $conn->prepare($sql);
+$statement->bind_param('s', $_POST['perBenutzername']);
+$execReturn = $statement->execute();
+
+if ($execReturn) {
+    $statement->store_result();
+    $statement->bind_result($perPasswort);
+    $statement->fetch();
+    if (password_verify($_POST['perPasswort'], $perPasswort)) {
+        //Session stuff will follow here
+        redirect_to("../view/home-view.php");
+        //echo $perPasswort;
+    } else {
+        echo "Error 1st else";
+        echo $statement->error;
+    }
+} else {
+    //echo "Error: " . $conn->error;
+    echo $statement->error;
+}
+
+
+/***
+$conn = db_connect();
+$username = htmlspecialchars(trim(stripslashes($_POST['perBenutzername'])));
+//$sql = "SELECT perId, perBenutzername, perPasswort FROM tbl_Person WHERE perBenutzername = ?";
+//$sql = "SELECT perPasswort FROM tbl_Person WHERE perBenutzername = ?";
+$conn->multi_query("CALL func_SelectLoginData('$username')");
+
+//$statement = $conn->prepare($sql);
+//$statement->bind_param('s', $_POST['perBenutzername']);
+//$execReturn = $statement->execute();
+
+if ($execReturn) {
+$statement->store_result();
+$statement->bind_result($perPasswort);
+$statement->fetch();
+if (password_verify($_POST['perPasswort'], $perPasswort)) {
+//Session stuff will follow here
+redirect_to("../view/home-view.php");
+} else {
+echo "Error 1st else";
+echo $statement->error;
+}
+} else {
+//echo "Error: " . $conn->error;
+echo $statement->error;
+}
+ ***/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
@@ -79,19 +153,6 @@ SET @perID = func_InsertPerson(`p_perBenutzername`, `p_perVorname`, `p_perNachna
 END
  *
 INSERT INTO tbl_Kontakt (konEmail) VALUES (p_konEmail);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
