@@ -9,11 +9,16 @@
 require_once "db_connection.php";
 require_once "functions.php";
 
+// database connection
 $conn = db_connect();
 
+// check if password = confirm password
 if ($_POST['perPasswort'] == $_POST['perPasswort2']) {
+    // call the procedure
     $sql = "CALL proc_InsertRegistrationData(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    // send statement to server
     $statement = $conn->prepare($sql);
+    // bind parameters to statement
     $statement->bind_param('sssssssss',
         $_POST['perBenutzername'],
         $_POST['perVorname'],
@@ -26,6 +31,7 @@ if ($_POST['perPasswort'] == $_POST['perPasswort2']) {
         $_POST['konEmail']
     );
 
+    // execute the statement and redirect to the login-view
     if ($statement->execute()) {
         redirect_to("../view/login-view.php");
     } else {
@@ -33,10 +39,10 @@ if ($_POST['perPasswort'] == $_POST['perPasswort2']) {
 
     }
 } else {
-    //echo "Wrong password";
     redirect_to("../view/registration-view.php");
 }
 
+// close the database connection
 $conn->close();
 
 
