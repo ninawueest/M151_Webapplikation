@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php require_once "../php/db_connection.php"; ?>
+    <?php require_once "../php/functions.php"; ?>
 
 </head>
 
@@ -25,7 +27,8 @@
     </nav>
 
     <span class="title display-1">
-            Hello World
+            <!-- Hello World-->
+            <?php return_username(); ?>
     </span>
 
 </body>
