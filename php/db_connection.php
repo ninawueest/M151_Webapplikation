@@ -6,8 +6,10 @@
  * Time: 14:35
  */
 
+// start the session
 session_start();
 
+// function to connect with the database
 function db_connect() {
     $db_server = "localhost";
     $username = "root";

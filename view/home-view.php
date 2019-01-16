@@ -26,8 +26,9 @@
         </div>
     </nav>
 
+    <!---main content--->
     <span class="title display-1">
-            <!-- Hello World-->
+            <!--return the username session-->
             <?php return_username(); ?>
     </span>
 

@@ -32,29 +32,35 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+
+                <!--login form-->
 				<form class="login100-form validate-form" method="post" action="../php/login.php">
 					<span class="login100-form-title p-b-49">
 						Login
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+                    <!--username form-->
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="perBenutzername" placeholder="Type your username" required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
+                    <!--password form-->
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100">Password</span>
 						<input class="input100" type="password" name="perPasswort" placeholder="Type your password" required>
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
-					
+
+                    <!--inactive link-->
 					<div class="text-right p-t-8 p-b-31">
 						<a href="#">
 							Forgot password?
 						</a>
 					</div>
-					
+
+                    <!--login button-->
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
@@ -69,6 +75,7 @@
 							Do you not have an account?
 						</span>
 
+                        <!--link to sign up-->
 						<a href="registration-view.php" class="txt2">
 							Sign Up
 						</a>

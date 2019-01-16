@@ -8,19 +8,27 @@
 require_once "db_connection.php";
 require_once "functions.php";
 
+// database connection
 $conn = db_connect();
 
+// call the procedure
 $sql = "CALL proc_SelectLoginData(?)";
+// send statement to server
 $statement = $conn->prepare($sql);
+// bind perBenutzername to statement
 $statement->bind_param('s', $_POST['perBenutzername']);
+// execute the statement
 $execReturn = $statement->execute();
 
+// check if statement execute = true
 if ($execReturn) {
     $statement->store_result();
     $statement->bind_result($perId, $perBenutzername, $perPasswort);
     $statement->fetch();
+
+    // check if password correct
     if (password_verify($_POST['perPasswort'], $perPasswort)) {
-        //Session stuff
+        // set the sessions and redirect to home-view
         $_SESSION['user_id'] = $perId;
         $_SESSION['user_username'] = $perBenutzername;
         redirect_to("../view/home-view.php");
