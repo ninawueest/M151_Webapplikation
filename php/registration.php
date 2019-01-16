@@ -33,7 +33,8 @@ if ($_POST['perPasswort'] == $_POST['perPasswort2']) {
 
     }
 } else {
-    echo "Wrong password";
+    //echo "Wrong password";
+    redirect_to("../view/registration-view.php");
 }
 
 $conn->close();
