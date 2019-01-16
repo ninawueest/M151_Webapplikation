@@ -10,7 +10,6 @@ require_once "functions.php";
 
 $conn = db_connect();
 
-//$sql = "SELECT perPasswort FROM tbl_Person WHERE perBenutzername = ?";
 $sql = "CALL proc_SelectLoginData(?)";
 $statement = $conn->prepare($sql);
 $statement->bind_param('s', $_POST['perBenutzername']);
@@ -22,7 +21,7 @@ if ($execReturn) {
     $statement->fetch();
     if (password_verify($_POST['perPasswort'], $perPasswort)) {
         //Session stuff
-        $_SESSION['user_id'] = $perIdid;
+        $_SESSION['user_id'] = $perId;
         $_SESSION['user_username'] = $perBenutzername;
         redirect_to("../view/home-view.php");
     } else {
