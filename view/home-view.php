@@ -10,12 +10,13 @@
     <?php require_once "../php/functions.php"; ?>
     <script language="javascript" type="text/javascript" src="../js/googlemaps.js"></script>
 
+
 </head>
 
 <body>
 
     <!---navbar--->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
         <!-- Navbar content -->
         <div class="container-fluid">
             <div class="navbar-header">

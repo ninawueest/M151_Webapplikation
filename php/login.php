@@ -60,6 +60,55 @@ if ($execReturn) {
 
 
 
+/*** Mit Redundanz
+BEGIN
+INSERT INTO tbl_Ort (ortPostleitzahl, ortOrtsbezeichnung) VALUES (p_ortPostleitzahl, p_ortOrtsbezeichnung);
+RETURN (LAST_INSERT_ID());
+END
+***/
+/*** Ohne Redundanz (Nimmt Daten von erster Registration einer PLZ)
+BEGIN
+    DECLARE r_ortId INT;
+    SELECT ortId INTO r_ortId FROM tbl_Ort WHERE ortPostleitzahl = p_ortPostleitzahl;
+    IF (r_ortId IS NULL) THEN
+        INSERT INTO tbl_Ort (ortPostleitzahl, ortOrtsbezeichnung) VALUES (p_ortPostleitzahl, p_ortOrtsbezeichnung);
+        SELECT LAST_INSERT_ID() INTO r_ortId FROM DUAL;
+    END IF;
+    RETURN (r_ortId);
+END
+***/
+/*** Ohne Redundanz (Aktualisiert zusätzlich die Ortsbezeichnung)
+BEGIN
+    DECLARE r_ortId INT;
+    DECLARE r_ortOrtsbezeichnung VARCHAR(18);
+    SELECT ortId, ortOrtsbezeichnung INTO r_ortId, r_ortOrtsbezeichnung FROM tbl_Ort WHERE ortPostleitzahl = p_ortPostleitzahl;
+    IF (r_ortId IS NULL) THEN
+        INSERT INTO tbl_Ort (ortPostleitzahl, ortOrtsbezeichnung) VALUES (p_ortPostleitzahl, p_ortOrtsbezeichnung);
+        SELECT LAST_INSERT_ID() INTO r_ortId FROM DUAL;
+    ELSEIF (r_ortOrtsbezeichnung != p_ortOrtsbezeichnung) THEN
+    	UPDATE tbl_Ort SET ortOrtsbezeichnung = p_ortOrtsbezeichnung WHERE ortId = r_ortId;
+    END IF;
+    RETURN (r_ortId);
+END
+***/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
